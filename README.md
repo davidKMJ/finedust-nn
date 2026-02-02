@@ -1,4 +1,5 @@
 # finedust-nn
+
 ![Static Badge](https://img.shields.io/badge/status-done-brightgreen?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/type-class_project-blue?style=for-the-badge)
 
@@ -7,16 +8,18 @@ An AI project for fine dust (PM10, PM2.5) prediction using time-series and image
 ## How to Start
 
 ### Environment
-- Python 3.8+
-- Jupyter Notebook or JupyterLab
-- Git
+
+-   Python 3.8+
+-   Jupyter Notebook or JupyterLab
+-   Git
 
 ### Dependencies
-- Data & numerics: pandas, numpy, openpyxl, xlrd
-- ML/DL: tensorflow (Keras), scikit-learn
-- Visualization: matplotlib, seaborn
-- Data collection: requests, selenium
-- Image: Pillow (PIL)
+
+-   Data & numerics: pandas, numpy, openpyxl, xlrd
+-   ML/DL: tensorflow (Keras), scikit-learn
+-   Visualization: matplotlib, seaborn
+-   Data collection: requests, selenium
+-   Image: Pillow (PIL)
 
 ### Quick Start
 
@@ -37,9 +40,10 @@ pip install pandas numpy openpyxl xlrd tensorflow scikit-learn matplotlib seabor
 # 2. ml.ipynb   — model training & evaluation
 ```
 
-Place Seoul air quality, weather, and reference files in `content/` as in the project layout. Preprocessed CSVs (`df_final_2022.csv`, `df_real_final_2022.csv`) and optional wind-map images in `windmap/` are produced by the EDA notebook.
+Place Seoul air quality, weather, and reference files in `content/` as in the project layout. Preprocessed CSVs (`df_final_2022.csv`, `df_real_final_2022.csv`) and optional wind-map images in `windmap/` are produced by the EDA notebook. The service keys in the files are deleted and no longer valid.
 
 ## Key Features
+
 1. Multi-source data – Seoul air quality (PM10, PM2.5), weather (temp, wind, humidity, pressure, cloud, visibility, etc.), and CO (ppm) from Seoul Open API
 2. Wind-map images – Hourly wind maps from [earth.nullschool.net](https://earth.nullschool.net) (crawled with Selenium) for synoptic-scale wind patterns
 3. Tabular RNN/LSTM – 24-hour and 1-week (168 h) sequences to capture daily/weekly periodicity
@@ -48,15 +52,17 @@ Place Seoul air quality, weather, and reference files in `content/` as in the pr
 6. Feedback-driven design – Traffic data replaced with CO; wind maps justified by model improvement; sequence length tuned for periodicity
 
 ## Technical Stack
-- Python – Main language
-- TensorFlow / Keras – SimpleRNN, LSTM, CNN, combined Sequential/Functional models; EarlyStopping
-- scikit-learn – Train/test split, MinMaxScaler, OneHotEncoder
-- pandas / NumPy – Data loading, merging, sequence creation
-- matplotlib / seaborn – EDA and result plots
-- Selenium – Wind-map screenshot crawling
-- Pillow – Image loading and GIF creation (e.g. `top_*_pm10_windmap.gif`, `bottom_*_pm10_windmap.gif`)
+
+-   Python – Main language
+-   TensorFlow / Keras – SimpleRNN, LSTM, CNN, combined Sequential/Functional models; EarlyStopping
+-   scikit-learn – Train/test split, MinMaxScaler, OneHotEncoder
+-   pandas / NumPy – Data loading, merging, sequence creation
+-   matplotlib / seaborn – EDA and result plots
+-   Selenium – Wind-map screenshot crawling
+-   Pillow – Image loading and GIF creation (e.g. `top_*_pm10_windmap.gif`, `bottom_*_pm10_windmap.gif`)
 
 ## Project Structure
+
 ```
 finedust-nn/
 ├── content/                    # Raw and reference data
@@ -75,7 +81,8 @@ finedust-nn/
 ```
 
 ## Data Sources
-- Seoul air quality: [Seoul Metropolitan Government](https://data.seoul.go.kr) – hourly PM10, PM2.5 (2022)
-- Weather: Korea Meteorological Administration – station-based hourly weather (reference: [data.go.kr](https://www.data.go.kr))
-- CO (ppm): Seoul Open API – [TimeAverageCityAir](http://data.seoul.go.kr/dataList/OA-2221/S/1/datasetView.do)
-- Wind maps: [earth.nullschool.net](https://earth.nullschool.net) – wind/surface layer (crawled for Korea region)
+
+-   Seoul air quality: [Seoul Metropolitan Government](https://data.seoul.go.kr) – hourly PM10, PM2.5 (2022)
+-   Weather: Korea Meteorological Administration – station-based hourly weather (reference: [data.go.kr](https://www.data.go.kr))
+-   CO (ppm): Seoul Open API – [TimeAverageCityAir](http://data.seoul.go.kr/dataList/OA-2221/S/1/datasetView.do)
+-   Wind maps: [earth.nullschool.net](https://earth.nullschool.net) – wind/surface layer (crawled for Korea region)
